@@ -236,3 +236,11 @@
 a:hover{
     color:red;
 }
+.d_left_c .unselect{
+    filter: Alpha(opacity=30);
+    opacity: 0.3;
+}
+.d_left_c .select{
+    filter: Alpha(opacity=100);
+    opacity: 1.0;
+}
