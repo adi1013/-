@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录注册栏</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/mainPage.css">
+    
+    <script src="lib/jquery-3.3.1.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+</head>
+<body style="height:1500px;">
+<div class="container-flush">
+    <ul class="nav nav-pills bg-danger justify-content-end nav_height" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link tologin_and_register" id="login-bills" role="tab" href="javascript:void(0);">
+            <span class="glyphicon glyphicon-log-in"></span>&nbsp;
+            登录
+        </a>
+      </li>
+      <li>&nbsp;&nbsp;</li>
+      <li class="nav-item" style="margin-right:3%;">
+        <a class="nav-link tologin_and_register" id="register-pills" href="javascript:void(0);">
+            注册&nbsp;
+            <span class="glyphicon glyphicon-log-out"></span>
+          </a>
+      </li>
+    </ul>
+    
+<div class="modal fade" style="top:30%;" id="toLogin" tabindex="-1" role="dialog" aria-labelledby="login_title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <div class="modal-title tolog_reg_mod_title" id="login_title">
+                        <span class="glyphicon glyphicon-log-in"></span>
+                        &nbsp;&nbsp;用户登录
+                    </div>
+                    <button type="button" class="close" id="close_login">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-flush">
+                        <form role="form" id="loginform" method="post">
+                            <div class="form-group has-feedback input-group input-group-sm col-md-12">
+                                <span class="input-group-text rounded-left clear_right-radius">
+                                    <span class=" glyphicon glyphicon-user form-control-feedback"></span>
+                                </span>  
+                                <input type="text" class="form-control col-md-6" placeholder="请输入用户名" name="username" required> 
+                                
+                            </div>
+
+                            <div class="form-group has-feedback input-group input-group-sm col-md-12">
+                                <span class="input-group-text rounded-left clear_right-radius">
+                                    <span class=" glyphicon glyphicon-lock form-control-feedback"></span>
+                                </span>
+                                <input type="password" class="form-control col-md-6" placeholder="请输入密码" name="password" required> 
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-7 text-right">
+                                    <a class="tologin_a" id="toRegister_a" href="javascript:void(0);">还没有账号，去注册>>></a>
+                                </div>
+                            </div>
+<!--                            <div class="col-md-12">-->
+                                <div class="col-md-8 text-left ">
+                                    <button type="submit" id="getLogin" class="btn btn-danger col-md-11 btn-sm">登录</button>
+                                </div>
+<!--                            </div>-->
+                        </form>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        
+        $(function(){
+            $("#toLogin").modal();
+        });  
+        $(function(){
+            $("#login-bills").on('click',function(){
+                $("#toLogin").modal();
+            });
+
+            $("#close_login").on('click',function(){
+                $("#toLogin").modal("hide");
+            });
+
+            $("#register-pills").on('click',function(){
+                if($("#toLogin")){
+                    $("#close_login").trigger("click");
+                }
+                $("#toRegister").modal();
+            });
+
+            $("#toRegister_a").on('click',function(){
+                $("#close_login").trigger("click");
+                $("#toRegister").modal();
+            });
+        });
+//        $.validator.setDefaults({
+//            submitHandler:function(){
+//                alert('提交事件');
+//            }
+//        });
+        //表单验证
+        $().ready(function(){
+            $("#loginform").validate({
+                    errorElement:"span",
+                    errorPlacement:function(error,element){
+                                        error.appendTo(element.parent());
+//                                        var span1=element.parent().next();
+                                    },
+                    errorClass:"error",
+                    success:function(span){
+                        span.addClass("valid").text("okxc v");
+                    },
+                    rules:{
+                            username:{
+                                    required:true,
+                                    minlength:12
+                                },
+                                password:{
+                                    required:true,
+                                    minlength:8,
+                                    maxlength:15
+                                }
+                            },
+                    messages:{
+                                username:{
+                                    required:"请输入学号",
+                                    minlength:"&nbsp;请输入正确的学号"
+                                },
+                                password:{
+                                    required:"请输入密码",
+                                    minlength:"密码长度必须由8~15个字符组成",
+                                    maxlength:"密码长度必须由8~15个字符组成"
+                                }
+                            },
+                    debug:true
+//                    submitHandler:function(form){
+//                                form.submit();
+//                                alert("hello world");
+//                            }
+                });
+            });
+    </script>
+    
+    <div class="modal fade" style="top:30%;" id="toRegister" tabindex="-1" role="dialog" aria-labelledby="register_title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <div class="modal-title tolog_reg_mod_title" id="register_title">
+                        <span class="glyphicon glyphicon-log-out"></span>
+                        &nbsp;&nbsp;用户注册
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span arid-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" >
+                    <div class="container-flush">
+                        <form role="form">
+                            <div class="form-group has-feedback input-group input-group-sm col-md-8">
+                                <span class="input-group-text rounded-left clear_right-radius">
+                                    <span class=" glyphicon glyphicon-user form-control-feedback"></span>
+                                </span>  
+                                <input type="text" class="form-control" placeholder="输入用户名..." required> 
+                            </div>
+
+                            <div class="form-group has-feedback input-group input-group-sm col-md-8">
+                                <span class="input-group-text rounded-left clear_right-radius">
+                                    <span class=" glyphicon glyphicon-lock form-control-feedback"></span>
+                                </span>
+                                <input type="password" class="form-control" placeholder="输入密码..." required> 
+                            </div>
+
+                           <div class="form-group has-feedback input-group input-group-sm col-md-8">
+                                <span class="input-group-text rounded-left clear_right-radius">
+                                    <span class=" glyphicon glyphicon-lock form-control-feedback"></span>
+                                </span>
+                                <input type="password" class="form-control" placeholder="再次输入密码..." required> 
+                            </div>
+
+                           <div class="form-group has-feedback input-group input-group-sm col-md-8">
+                                <span class="input-group-text rounded-left clear_right-radius">
+                                    <span class=" glyphicon glyphicon-phone form-control-feedback"></span>
+                                </span>
+                                <input type="text" class="form-control" placeholder="请输入手机号码..." required> 
+                            </div>
+
+                           
+                            <div class="text-right col-md-8">
+                                <a class="btn btn-danger btn-sm col-md-12" href="#">注册</a>
+                            </div>
+                        </form>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border:1px;">
+        <div class="col-md-4 text-right">
+            <img src="lib/bootstrap/img/logo.jpg" class="nav_logo" width="190px" height="80px" alt="易书网">
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav col-md-8">
+               <li class="nav-item active text-center col-md-3">
+                    <a class="nav-link" style="font-weight:bolder;color:#f15b28;" href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;首页&nbsp;<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active text-center col-md-3">
+                    <a class="nav-link" style="font-weight:bolder;color:#f15b28;" href="#"><span class="glyphicon glyphicon-road"></span>&nbsp;二手市场<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active text-center col-md-3">
+                    <a class="nav-link" style="font-weight:bolder;color:#f15b28;" href="#"><span class="glyphicon glyphicon-book"></span>&nbsp;所有商品<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item text-center col-md-3">
+                    <a class="nav-link" style="font-weight:bolder;color:#f15b28;" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;个人中心</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div style="background-color:#f8f9fa;"><br/></div>
+    <div class="container-flush content_back_color">
+    <div class="container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" style="background:url(../img/title_back.jpg) no-repeat center bottom;
+    background-size: 100% 100%;">
+            <div class="carousel-item  text-center col-md-12 thumbnail active ">
+              <img class="d-block w-100" src="lib/bootstrap/img/slide1.jpg" height="300px" alt="First slide">
+            </div>
+            <div class="carousel-item text-center thumbnail col-md-12">
+              <img class="d-block w-100" src="lib/bootstrap/img/slide4.jpg" height="300px" alt="Second slide">
+            </div>
+            <div class="carousel-item text-center thumbnail col-md-12">
+              <img class="d-block w-100" src="lib/bootstrap/img/slide5.jpg" height="300px" alt="Third slide">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+    </div>
+    <br/>
+    <!--增加了背景色-->
+    <div class="container text-center main_pro_show">
+        <div>
+            <div class="text-center title_container">
+                <div>
+                    <span class="title_border"></span>
+                    <span class="title"><span class="glyphicon glyphicon-send"></span>&nbsp;最新上架</span>
+                    <span class="title_border"></span>
+                </div>
+            </div>
+            <img src="lib/bootstrap/img/bord.jpg" style="width:100%;height:30px;">
+        </div> 
+        <div class="text-right" style=" margin-right:5%;margin-bottom:1%;">
+            <a href="#" class="text-right" style="height:1%;line-height:1%;color:#237afb;">
+                <span class="glyphicon glyphicon-repeat"></span>
+                <span class="change_pro">换一批</span>
+            </a>
+        </div>   
+        
+        <div class="row text-center" style="padding-left:1rem;">
+    
+          <div class="card row_bottom" style="width:17rem;height:26rem;margin-right:0.5rem;">
+                <div style="width:17rem;height:18rem;">
+                  <a href="#">
+                    <img class="card-img-top" style="width:15rem;height:18rem;" src="lib/bootstrap/img/高等数学.jpg" alt="高等数学">
+                  </a>
+                </div>
+                <div class="card-block" style="width:17rem;height:8rem;padding-top:1rem;">
+                   <div class=" text-center " style="width:17rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                      <a href="#">
+                          <span class="card-title pro_name">高等数学高等数学高等数学高等数学高等数学高等数学高等数学高等数学</span>
+                      </a>
+                    </div>
+                    <p class="card-text in_one_row "><span class="card-title">阳平华、***主编阳平华、***主编阳平华、***主编阳平华、***主编</span></p>
+                    <span class="car-link pro_price">￥15.00</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
+                </div>
+            </div>
+            
+           <div class="card row_bottom" style="width:17rem;height:26rem;margin-right:0.5rem;">
+                <div style="width:17rem;height:18rem;">
+                  <a href="#">
+                    <img class="card-img-top" style="width:15rem;height:18rem;" src="lib/bootstrap/img/高等数学.jpg" alt="高等数学">
+                  </a>
+                </div>
+                <div class="card-block" style="width:17rem;height:8rem;padding-top:1rem;">
+                   <div class=" text-center " style="width:17rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                      <a href="#">
+                          <span class="card-title pro_name">高等数学高等数学高等数学高等数学高等数学高等数学高等数学高等数学</span>
+                      </a>
+                    </div>
+                    <p class="card-text in_one_row "><span class="card-title">阳平华、***主编阳平华、***主编阳平华、***主编阳平华、***主编</span></p>
+                    <span class="car-link pro_price">￥15.00</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
+                </div>
+            </div>
+            
+            <div class="card row_bottom" style="width:17rem;height:26rem;margin-right:0.5rem;">
+                <div style="width:17rem;height:18rem;">
+                  <a href="#">
+                    <img class="card-img-top" style="width:15rem;height:18rem;" src="lib/bootstrap/img/高等数学.jpg" alt="高等数学">
+                  </a>
+                </div>
+                <div class="card-block" style="width:17rem;height:8rem;padding-top:1rem;">
+                   <div class=" text-center " style="width:17rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                      <a href="#">
+                          <span class="card-title pro_name">高等数学高等数学高等数学高等数学高等数学高等数学高等数学高等数学</span>
+                      </a>
+                    </div>
+                    <p class="card-text in_one_row "><span class="card-title">阳平华、***主编阳平华、***主编阳平华、***主编阳平华、***主编</span></p>
+                    <span class="car-link pro_price">￥15.00</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
+                </div>
+            </div>
+            
+            <div class="card row_bottom" style="width:17rem;height:26rem;margin-right:0.5rem;">
+                <div style="width:17rem;height:18rem;">
+                  <a href="#">
+                    <img class="card-img-top" style="width:15rem;height:18rem;" src="lib/bootstrap/img/高等数学.jpg" alt="高等数学">
+                  </a>
+                </div>
+                <div class="card-block" style="width:17rem;height:8rem;padding-top:1rem;">
+                   <div class=" text-center " style="width:17rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                      <a href="#">
+                          <span class="card-title pro_name">高等数学高等数学高等数学高等数学高等数学高等数学高等数学高等数学</span>
+                      </a>
+                    </div>
+                    <p class="card-text in_one_row "><span class="card-title">阳平华、***主编阳平华、***主编阳平华、***主编阳平华、***主编</span></p>
+                    <span class="car-link pro_price">￥15.00</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
+                </div>
+            </div>
+            
+            <div class="card row_bottom" style="width:17rem;height:26rem;margin-right:0.5rem;">
+                <div style="width:17rem;height:18rem;">
+                  <a href="#">
+                    <img class="card-img-top" style="width:15rem;height:18rem;" src="lib/bootstrap/img/高等数学.jpg" alt="高等数学">
+                  </a>
+                </div>
+                <div class="card-block" style="width:17rem;height:8rem;padding-top:1rem;">
+                   <div class=" text-center " style="width:17rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                      <a href="#">
+                          <span class="card-title pro_name">高等数学高等数学高等数学高等数学高等数学高等数学高等数学高等数学</span>
+                      </a>
+                    </div>
+                    <p class="card-text in_one_row "><span class="card-title">阳平华、***主编阳平华、***主编阳平华、***主编阳平华、***主编</span></p>
+                    <span class="car-link pro_price">￥15.00</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
+                </div>
+            </div>
+            <div class="card row_bottom" style="width:17rem;height:26rem;margin-right:0.5rem;">
+                <div style="width:17rem;height:18rem;">
+                  <a href="#">
+                    <img class="card-img-top" style="width:15rem;height:18rem;" src="lib/bootstrap/img/高等数学.jpg" alt="高等数学">
+                  </a>
+                </div>
+                <div class="card-block" style="width:17rem;height:8rem;padding-top:1rem;">
+                   <div class=" text-center " style="width:17rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                      <a href="#">
+                          <span class="card-title pro_name">高等数学高等数学高等数学高等数学高等数学高等数学高等数学高等数学</span>
+                      </a>
+                    </div>
+                    <p class="card-text in_one_row "><span class="card-title">阳平华、***主编阳平华、***主编阳平华、***主编阳平华、***主编</span></p>
+                    <span class="car-link pro_price">￥15.00</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
+                </div>
+            </div>
+            
+            <div class="card row_bottom" style="width:17rem;height:26rem;margin-right:0.5rem;">
+                <div style="width:17rem;height:18rem;">
+                  <a href="#">
+                    <img class="card-img-top" style="width:15rem;height:18rem;" src="lib/bootstrap/img/高等数学.jpg" alt="高等数学">
+                  </a>
+                </div>
+                <div class="card-block" style="width:17rem;height:8rem;padding-top:1rem;">
+                   <div class=" text-center " style="width:17rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                      <a href="#">
+                          <span class="card-title pro_name">高等数学高等数学高等数学高等数学高等数学高等数学高等数学高等数学</span>
+                      </a>
+                    </div>
+                    <p class="card-text in_one_row "><span class="card-title">阳平华、***主编阳平华、***主编阳平华、***主编阳平华、***主编</span></p>
+                    <span class="car-link pro_price">￥15.00</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
+                </div>
+            </div>
+            
+            <div class="card row_bottom" style="width:17rem;height:26rem;margin-right:0.5rem;">
+                <div style="width:17rem;height:18rem;">
+                  <a href="#">
+                    <img class="card-img-top" style="width:15rem;height:18rem;" src="lib/bootstrap/img/高等数学.jpg" alt="高等数学">
+                  </a>
+                </div>
+                <div class="card-block" style="width:17rem;height:8rem;padding-top:1rem;">
+                   <div class=" text-center " style="width:17rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                      <a href="#">
+                          <span class="card-title pro_name">高等数学高等数学高等数学高等数学高等数学高等数学高等数学高等数学</span>
+                      </a>
+                    </div>
+                    <p class="card-text in_one_row "><span class="card-title">阳平华、***主编阳平华、***主编阳平华、***主编阳平华、***主编</span></p>
+                    <span class="car-link pro_price">￥15.00</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
+                </div>
+            </div>
+       </div>
+    </div>
+    <br/>
+    <!--网页尾部-->
+        <div class="container bg-light">
+           <div class="foot_top"></div>
+            <div class="row">
+                <div class="col-md-5" style="">
+                    <div class="text-center">
+                        <h4 style="">联系我们</h4>
+                        <div style="border-bottom:1px solid gray;"></div>
+                        <div class="col-md-12 text-center">
+                            <div class="col-md-10 text-left"> 
+                                <div>
+                                    <span>电话&nbsp;<span class="glyphicon glyphicon-earphone"></span>：</span>
+                                    <span>0754-88888888</span>
+                                </div>
+                                <div>
+                                    <span>邮箱&nbsp;<span class="glyphicon glyphicon-envelope"></span>：</span>
+                                    <span>yishu.gcu.edu.cn</span>
+                                </div>
+                                <div>
+                                    <span style=""></span>
+                                    <span>地址&nbsp;<span class="glyphicon glyphicon-plane"></span>：</span>
+                                    <span>广州市花都区新华街道学府路1号</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-2">
+                   <div class="text-center">
+                        <img src="lib/bootstrap/img/font_under_logo.jpg" width='70%;'/>
+                    </div>
+                </div>
+                <div class="col-md-5" style="">
+                    <div class="text-center">
+                        <h4>用户指南</h4>
+                        <div style="border-bottom:1px solid gray;"></div>
+                        <div class="container">
+                            <div class="col-md-9 text-right">
+                                <div style="text-decoration:none;font-size:1rem;">
+                                   <div style="height:2rem;line-height:2.4rem;">
+                                       <span style="padding-right:10%;"><a href="#" style="color:black;">如何买书</a></span>
+                                       <span style="color:#ccc;">|</span>
+                                       <span style="padding-left:10%;"><a href="#" style="color:black;">信息修改</a></span>
+                                   </div>
+                                   <div style="height:2rem;line-height:2.4rem;">
+                                       <span style="padding-right:10%;"><a href="#" style="color:black;">关于我们</a></span>
+                                       <span style="color:#ccc;">|</span>
+                                       <span style="padding-left:10%;"><a href="#" style="color:black;">加入我们</a></span>
+                                   </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-12" style="background:#d1cfd0;">
+                        <span class="glyphicon glyphicon-paperclip"></span>
+                        <span style="margin-right:5%;">友情链接：</span>
+                        <span style="margin-right:5%;"><a href="http://jwxt.gcu.edu.cn">华广教务系统</a></span>
+                        <span><a href="http://www.gcu.edu.cn/">华南理工大学广州学院官网</a></span>
+                </div>
+            </div>
+        </div>
+        <br/>
+    </div>
+    
+</div>
+</body>
+</html>
