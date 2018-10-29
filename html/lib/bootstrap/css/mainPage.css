@@ -244,3 +244,11 @@ a:hover{
     filter: Alpha(opacity=100);
     opacity: 1.0;
 }
+.chevron_show{
+    opacity: 0.6;
+    filter: Alpha(opacity=60);
+}
+.chevron-hide{
+    opacity: 0.2;
+    filter: Alpha(opacity=20);
+}
