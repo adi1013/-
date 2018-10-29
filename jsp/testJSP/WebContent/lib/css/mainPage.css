@@ -1,0 +1,147 @@
+.tologin_and_register{
+    background:white; 
+    height:80%;
+    line-height:80%;
+    margin-top:5%;
+}
+.error{
+    font-size:0.6em;
+    color:red;
+}
+.valid{
+    font-size: 0.6em;
+    color: chartreuse;
+}
+.tolog_reg_mod_title{
+    margin-left:3%;
+    font-size:1em;
+    font-weight:bold;
+    color:white;
+}
+.nav_logo{
+    margin-left: 30px;
+}
+.nav_height{
+    opacity:0.8;
+    filter:alpha(capcity=80);
+    height:2.5rem;
+    line-height:2.5rem;
+}
+.nav_tologin{
+    background:white; 
+    height:80%;
+    line-height:80%;
+    margin-top:5%;
+}
+.login_border{
+    background:#CCC;
+    top:0;
+    text-align: bottom;
+}
+.clear_right-radius{
+    border-top-right-radius:0px;
+    border-bottom-right-radius:0px;
+}
+.tologin_a{
+    font-size:0.8em;
+    text-decoration:underline;
+    height:1em;
+    line-height:1em;
+}
+.gly_style{
+    margin-left: 20px;
+}
+.hr_sty{
+    color: #f15b28;
+}
+
+.breadcrumb_backg{
+    background: none;
+}
+.row_bottom{
+    margin-bottom: 10px;
+}
+.row_side{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.pro_name{
+    font-weight: bold;
+    font-size: 1.3rem;
+    line-height: 2em;
+}
+.pro_img{
+    width: 100%;
+    max-width: 17rem;
+    height: 100%;
+    max-width: 20rem;
+}
+.pro_press{
+    font-size:15px;
+    color: black;
+    
+}
+.pro_price{
+    color: orangered;
+    font-size: 20px;
+    font-weight: bold;
+}
+.pro_collected{
+    color: lightgray;
+    font-size: 12px;
+}
+.row .card a{
+    text-decoration: none;
+    color: black;
+}
+.row .card a:hover{
+    color: black;
+    text-decoration: underline;
+}
+.in_one_row{
+    width:17rem;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.foot_logo{
+
+    max-height: 6rem;
+    max-width: 6rem;
+}
+.foot_word{
+    color£ºgray£»
+    font-size: 10px;
+}
+.title_container{
+    height:30px;
+    line-height:30px;
+}
+.title_border{
+    border-top:1px solid #dc3545;
+    width:10%;
+    display:inline-block;
+}
+.title{
+    color:#dc3545;
+    font-weight:bold;
+    font-size:18px;
+}
+.content_back_color{
+    background: -webkit-linear-gradient(#f8f9fa, #e35d6a);
+    background: -o-linear-gradient(#f8f9fa, #e35d6a); 
+    background: -moz-linear-gradient(#f8f9fa, #e35d6a);
+    background: linear-gradient(#f8f9fa, #e35d6a);
+}
+.main_pro_show{
+    background:white;
+    border-radius:10px;
+}
+.main_pro_show .change_pro{
+    font-weight:bold;
+    font-size:8px;
+}
+.foot_top{
+    height:0.5em;
+    background:#d1cfd0;
+}
