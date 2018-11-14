@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品录入页</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/mainPage.css"/>
+    <script src="lib/jquery-3.3.1.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+</head>
+<body style="height:1000px;">
+    <div class="container-flush" style="height:100%;">
+        <!--头部-->
+        <!--导航栏区-->
+        <div class="container" style="height:5%;">
+           <nav aria_label="breadcrumb breadcrumbback" style="height:2.2rem;">
+                <ol class="breadcrumb bread_sty">
+                    <li class="breadcrumb-item"><a href="#" id="a1" style="color:black;">主页</a></li>
+                    <li class="breadcrumb-item"><a href="#" style="color:black;">个人中心</a></li>
+                    <li class="breadcrumb-item active"><a style="color:black;">商品录入</a></li>
+                </ol>
+            </nav>
+            <img src="lib/bootstrap/img/bord.jpg"  style="width:100%;height:20px;"/>
+        </div>
+        <div class="container-flush content_back_color" style="height:60%;">
+            <div class="container" style="height:100%;">
+                <div class="row" style="height:52%;">
+                    <div class="col-md-6" style="height:100%;">
+                      <div class="form_content">
+                       <fieldset>
+                            <legend class="text-center">图片录入</legend>
+                            <div class="col-md-7" style="border:1px solid green;">
+                                <div class="form-group input-group " style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                    <label class="col-md-3 input-group-prepend">主图</label>
+                                    <input type="file" class="form-control-file col-md-9" style="height:1.8rem;">
+                                </div>
+                                <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                    <label class="col-md-3 input-group-prepend">副图</label>
+                                    <input type="file" class="form-control-file col-md-9" style="height:1.8rem;">
+                                </div>
+                                <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                    <label class="col-md-3 input-group-prepend">副图</label>
+                                    <input type="file" class="form-control-file col-md-9" style="height:1.8rem;">
+                                </div>
+                                <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                    <label class="col-md-3 input-group-prepend">副图</label>
+                                    <input type="file" class="form-control-file col-md-9" style="height:1.8rem;">
+                                </div>
+                            </div>
+                            <div class="col-md-5 float-right" style="height:100%;border:1px solid red;">
+                                <img src="lib/bootstrap/img/3.jpg" style="width:50px;height:50px;">
+                            </div>
+                        </fieldset>
+                        </div>
+                    </div>
+
+<!--
+                    <div class="col-md-6" style="height:100%;margin-top:5%;">
+                        <div class="form_content">
+                           <fieldset>
+                                <legend class="text-center optional">书本信息录入</legend>
+                                    <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                        <label class="col-md-2 input-group-prepend">书本名</label>
+                                        <input type="text" class="form-control col-md-8" placeholder="请输入书名">
+                                    </div>
+                                    <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                        <label class="col-md-2 input-group-prepend">出版社</label>
+                                        <input type="text" class="form-control col-md-8" placeholder="请输入出版社">
+                                    </div>
+                                    <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                        <label class="col-md-2 input-group-prepend">作者</label>
+                                        <input type="text" class="form-control col-md-8" placeholder="请输入作者">
+                                    </div>
+                                    <div class="form-group input-group text-right" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                         <label class="col-md-2 input-group-prepend">价格</label>
+                                         <input type="text" class="form-control col-md-2" placeholder="价格">
+                                         <span class="col-md-1"></span>
+                                         <label class="col-md-2 input-group-prepend">数量</label>
+                                         <input type="text" class="form-control col-md-2" placeholder="0">
+                                    </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="height:38%;">
+                       <div class="col-md-2"></div>
+                        <div class="col-md-7" style="height:100%;">
+                            <div class="form_content" style="padding-right:30px;">
+                               <fieldset>
+                                    <legend class="text-center optional2">书本简介</legend>
+                                    <div class="form-group" style="font-size:0.8rem;height:6rem;">
+                                        <label class="col-md-2">简介</label>
+                                        <textarea class="col-md-9" style="height:6rem;"></textarea>
+                                    </div>
+                                    <div class="form-group input-group" style="height:2rem;line-height:2rem;">
+                                        <span class="col-md-3"></span>
+                                        <input class="btn btn-sm col-md-2 border border-danger" style="background:#ffeded;color:red;border-radius:0;" type="submit" value="提交商品"/>
+                                        <span class="col-md-2"></span>
+                                        <input class="btn btn-sm col-md-2 border border-info" style="background:#b8babb;color:white;border-radius:0;" type="reset" value="重置商品"/>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+-->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
