@@ -12,6 +12,7 @@
     <script src="lib/bootstrap/js/bootstrapValidator.min.js"></script>
 </head>
 <body style="height:950px;">
+           <!--头部-->
     <div class="container-flush" style="height:100%;background:#f8f9fa;">
        <ul class="nav nav-pills bg-danger justify-content-end nav_height" role="tablist">
           <li class="nav-item">
@@ -50,17 +51,16 @@
             </div>
         </nav>
         <!--导航栏区-->
-            <div class="container" style="height:5%;">
+            <div class="container" style="height:2%;">
                <nav aria_label="breadcrumb breadcrumbback" style="height:2.2rem;">
-                    <ol class="breadcrumb" style="background:#f8f9fa;font-size:0.8rem;">
-                        <li class="breadcrumb-item"><a href="#" id="a1" style="color:black;">主页</a></li>
+                    <ol class="breadcrumb pro_det_bre">
+                        <li class="breadcrumb-item"><a href="#" style="color:black;">主页</a></li>
                         <li class="breadcrumb-item"><a href="#" style="color:black;">个人中心</a></li>
-                        <li class="breadcrumb-item active"><a style="color:black;">商品录入</a></li>
+                        <li class="breadcrumb-item active"><a>商品录入</a></li>
                     </ol>
                 </nav>
                 <img src="lib/bootstrap/img/bord2.jpg"  style="width:100%;height:20px;"/>
             </div>
-        <!--头部-->
         <div class="container-flush content_back_color" style="height:85%;">
             <div class="container" style="height:80%;margin-top:2%;">
                 <div class="row" style="height:52%;">
@@ -72,32 +72,32 @@
                                 <legend class="text-center">*图片录入</legend>
                             <!--图片文件选择-->
                                 <div class="col-md-7 float-left" id='upload'>
-                                    <div class="form-group input-group " style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                    <div class="form-group input-group pro_details_txt">
                                         <label class="col-md-3 input-group-prepend">封面图</label>
                                         <input type="file" class="form-control-file col-md-9" id="file1" style="height:1.8rem;">
                                     </div>
-                                    <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                    <div class="form-group input-group pro_details_txt">
                                         <label class="col-md-3 input-group-prepend">细节图</label>
                                         <input type="file" class="form-control-file col-md-9" style="height:1.8rem;">
                                     </div>
-                                    <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                    <div class="form-group input-group pro_details_txt">
                                         <label class="col-md-3 input-group-prepend">细节图</label>
                                         <input type="file" class="form-control-file col-md-9" style="height:1.8rem;">
                                     </div>
-                                    <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                    <div class="form-group input-group pro_details_txt">
                                         <label class="col-md-3 input-group-prepend">细节图</label>
                                         <input type="file" class="form-control-file col-md-9" style="height:1.8rem;">
                                     </div>
                                 </div>
                             <!-- 图片显示-->
                                 <div class="col-md-5 float-right" style="height:100%;" id="img-thumb">
-                                    <div class="col-md-12" style="height:48%;margin-top:8%;margin-bottom:1%;">
-                                        <img src="lib/bootstrap/img/init.jpg" id="view0" class="img-thumbnail" style="width:46%;height:70px;margin-left:1%;margin-right:1%;" data-toggle="tooltip" data-placement="bottom" title="点击查看大图">
-                                        <img src="lib/bootstrap/img/init.jpg" id="view1" class="img-thumbnail" style="width:46%;height:70px;margin-left:1%;margin-right:1%;" data-toggle="tooltip" data-placement="bottom" title="点击查看大图">
+                                    <div class="col-md-12 img-thum_out_con" >
+                                        <img src="lib/bootstrap/img/init.jpg" id="view0" class="img-thumbnail img-thum_con" data-toggle="tooltip" data-placement="bottom" title="点击查看大图">
+                                        <img src="lib/bootstrap/img/init.jpg" id="view1" class="img-thumbnail img-thum_con" data-toggle="tooltip" data-placement="bottom" title="点击查看大图">
                                     </div>
-                                    <div class="col-md-12" style="height:48%;margin-top:8%;margin-bottom:1%;">
-                                        <img src="lib/bootstrap/img/init.jpg" id="view2" class="img-thumbnail" style="width:46%;height:70px;margin-left:1%;margin-right:1%;" data-toggle="tooltip" data-placement="bottom" title="点击查看大图">
-                                        <img src="lib/bootstrap/img/init.jpg" id="view3" class="img-thumbnail" style="width:46%;height:70px;margin-left:1%;margin-right:1%;" data-toggle="tooltip" data-placement="bottom" title="点击查看大图"/>
+                                    <div class="col-md-12 img-thum_out_con">
+                                        <img src="lib/bootstrap/img/init.jpg" id="view2" class="img-thumbnail img-thum_con" data-toggle="tooltip" data-placement="bottom" title="点击查看大图">
+                                        <img src="lib/bootstrap/img/init.jpg" id="view3" class="img-thumbnail img-thum_con" data-toggle="tooltip" data-placement="bottom" title="点击查看大图"/>
                                     </div>
                                 </div>
                                 <div style="clear:both;"></div>
@@ -115,7 +115,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <img src="" style="width:100%;height:250px;opacity:0.9;" id="bigImg">
+                                        <img src="" class="modalImg" id="bigImg">
                                     </div>
                                 </div>
                             </div>
@@ -127,32 +127,32 @@
 
                                        <!--文本信息录入--->
 
-                                        <div class="form-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                        <div class="form-group pro_details_txt">
                                             <label class="col-md-2 control-label">书本名</label>
                                             <input type="text" class="form-control col-md-8" placeholder="UML2基础、建模与设计教程" name="Pro_name">
                                         </div>
-                                        <div class="form-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                        <div class="form-group pro_details_txt">
                                             <label class="col-md-2 control-label">出版社</label>
                                             <input type="text" class="form-control col-md-8" placeholder="清华大学出版社" name="Pro_press">
                                         </div>
-                                        <div class="form-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                        <div class="form-group pro_details_txt">
                                             <label class="col-md-2 control-label">作者</label>
                                             <input type="text" class="form-control col-md-8" placeholder="杨弘平" name="Pro_author">
                                         </div>
                                         <!--isbn与版本可能数据库未配-->
-                                        <div class="form-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                        <div class="form-group pro_details_txt">
                                             <label class="col-md-2 control-label">ISBN</label>
                                             <input type="text" class="form-control col-md-8" placeholder="978-7-302-40449-1" name="Pro_isbn">
                                         </div>
-                                        <div class="form-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                        <div class="form-group pro_details_txt">
                                             <label class="col-md-2 control-label">版本</label>
                                             <input type="text" class="form-control col-md-8" placeholder="2015" name="Pro_version">
                                         </div>
-                                        <div class="form-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                        <div class="form-group pro_details_txt">
                                             <label class="col-md-2 control-label">适合专业</label>
                                             <input type="text" class="form-control col-md-8" placeholder="软件工程" name="major">
                                         </div>
-                                        <div class="form-group input-group text-right" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                        <div class="form-group input-group text-right pro_details_txt">
                                              <label class="col-md-2 input-group-prepend">价格</label>
                                              <input type="text" class="form-control col-md-2" placeholder="价格" name="Pro_price">
                                              <span class="col-md-1"></span>
@@ -219,9 +219,9 @@
                                         </div>
                                         <div class="form-group input-group" style="height:2rem;line-height:2rem;">
                                             <span class="col-md-3"></span>
-                                            <input class="btn btn-sm col-md-2 border border-danger" style="background:#ffeded;color:red;border-radius:0;" type="submit" value="提交商品"/>
+                                            <input class="btn btn-sm col-md-2 border border-danger pro_submit" type="submit" value="提交商品"/>
                                             <span class="col-md-2"></span>
-                                            <input class="btn btn-sm col-md-2 border border-info" style="background:#b8babb;color:white;border-radius:0;" type="reset" value="重置商品"/>
+                                            <input class="btn btn-sm col-md-2 border border-info pro_reset" type="reset" value="重置商品"/>
                                         </div>
                                     </fieldset>
                                </form>
