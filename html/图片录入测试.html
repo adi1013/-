@@ -11,29 +11,65 @@
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="lib/bootstrap/js/bootstrapValidator.min.js"></script>
 </head>
-<body style="height:1000px;">
-    <div class="container-flush" style="height:100%;">
-        <!--头部-->
+<body style="height:950px;">
+    <div class="container-flush" style="height:100%;background:#f8f9fa;">
+       <ul class="nav nav-pills bg-danger justify-content-end nav_height" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link tologin_and_register" id="login-bills" role="tab" href="javascript:void(0);">
+                <span class="glyphicon glyphicon-log-in"></span>&nbsp;
+                登录
+            </a>
+          </li>
+          <li>&nbsp;&nbsp;</li>
+          <li class="nav-item" style="margin-right:3%;">
+            <a class="nav-link tologin_and_register" id="register-pills" href="javascript:void(0);">
+                注册&nbsp;
+                <span class="glyphicon glyphicon-log-out"></span>
+              </a>
+          </li>
+        </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border:1px;">
+            <div class="col-md-4 text-right">
+                <img src="lib/bootstrap/img/logo.jpg" class="nav_logo" width="190px" height="80px" alt="易书网">
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav col-md-8">
+                   <li class="nav-item active text-center col-md-3">
+                        <a class="nav-link" style="font-weight:bolder;color:#f15b28;" href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;首页&nbsp;<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active text-center col-md-3">
+                        <a class="nav-link" style="font-weight:bolder;color:#f15b28;" href="#"><span class="glyphicon glyphicon-road"></span>&nbsp;二手市场<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active text-center col-md-3">
+                        <a class="nav-link" style="font-weight:bolder;color:#f15b28;" href="#"><span class="glyphicon glyphicon-book"></span>&nbsp;所有商品<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item text-center col-md-3">
+                        <a class="nav-link" style="font-weight:bolder;color:#f15b28;" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;个人中心</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <!--导航栏区-->
-        <div class="container" style="height:5%;">
-           <nav aria_label="breadcrumb breadcrumbback" style="height:2.2rem;">
-                <ol class="breadcrumb bread_sty">
-                    <li class="breadcrumb-item"><a href="#" id="a1" style="color:black;">主页</a></li>
-                    <li class="breadcrumb-item"><a href="#" style="color:black;">个人中心</a></li>
-                    <li class="breadcrumb-item active"><a style="color:black;">商品录入</a></li>
-                </ol>
-            </nav>
-            <img src="lib/bootstrap/img/bord.jpg"  style="width:100%;height:20px;"/>
-        </div>
-        <div class="container-flush content_back_color" style="height:60%;">
-            <div class="container" style="height:100%;margin-top:2%;">
+            <div class="container" style="height:5%;">
+               <nav aria_label="breadcrumb breadcrumbback" style="height:2.2rem;">
+                    <ol class="breadcrumb" style="background:#f8f9fa;font-size:0.8rem;">
+                        <li class="breadcrumb-item"><a href="#" id="a1" style="color:black;">主页</a></li>
+                        <li class="breadcrumb-item"><a href="#" style="color:black;">个人中心</a></li>
+                        <li class="breadcrumb-item active"><a style="color:black;">商品录入</a></li>
+                    </ol>
+                </nav>
+                <img src="lib/bootstrap/img/bord2.jpg"  style="width:100%;height:20px;"/>
+            </div>
+        <!--头部-->
+        <div class="container-flush content_back_color" style="height:85%;">
+            <div class="container" style="height:80%;margin-top:2%;">
                 <div class="row" style="height:52%;">
                     <div class="col-md-6" style="height:100%;">
                       <div class="form_content">
                       <!--表单部分-->
-                      <form>
+                      <form id = "Pro_details" class="form-horizontal">
                            <fieldset>
-                                <legend class="text-center">图片录入</legend>
+                                <legend class="text-center">*图片录入</legend>
                             <!--图片文件选择-->
                                 <div class="col-md-7 float-left" id='upload'>
                                     <div class="form-group input-group " style="height:2rem;line-height:2rem;font-size:0.8rem;">
@@ -87,33 +123,33 @@
                         <div class="col-md-6" style="height:100%;margin-top:5%;">
                             <div class="form_content">
                                <fieldset>
-                                    <legend class="text-center optional">书本信息录入</legend>
+                                    <legend class="text-center optional">*书本信息录入</legend>
 
                                        <!--文本信息录入--->
 
-                                        <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                            <label class="col-md-2 input-group-prepend">书本名</label>
+                                        <div class="form-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                            <label class="col-md-2 control-label">书本名</label>
                                             <input type="text" class="form-control col-md-8" placeholder="UML2基础、建模与设计教程" name="Pro_name">
                                         </div>
-                                        <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                            <label class="col-md-2 input-group-prepend">出版社</label>
+                                        <div class="form-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                            <label class="col-md-2 control-label">出版社</label>
                                             <input type="text" class="form-control col-md-8" placeholder="清华大学出版社" name="Pro_press">
                                         </div>
-                                        <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                            <label class="col-md-2 input-group-prepend">作者</label>
+                                        <div class="form-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                            <label class="col-md-2 control-label">作者</label>
                                             <input type="text" class="form-control col-md-8" placeholder="杨弘平" name="Pro_author">
                                         </div>
                                         <!--isbn与版本可能数据库未配-->
-                                        <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                            <label class="col-md-2 input-group-prepend">ISBN</label>
+                                        <div class="form-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                            <label class="col-md-2 control-label">ISBN</label>
                                             <input type="text" class="form-control col-md-8" placeholder="978-7-302-40449-1" name="Pro_isbn">
                                         </div>
-                                        <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                            <label class="col-md-2 input-group-prepend">版本</label>
+                                        <div class="form-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                            <label class="col-md-2 control-label">版本</label>
                                             <input type="text" class="form-control col-md-8" placeholder="2015" name="Pro_version">
                                         </div>
-                                        <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                            <label class="col-md-2 input-group-prepend">适合专业</label>
+                                        <div class="form-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                            <label class="col-md-2 control-label">适合专业</label>
                                             <input type="text" class="form-control col-md-8" placeholder="软件工程" name="major">
                                         </div>
                                         <div class="form-group input-group text-right" style="height:2rem;line-height:2rem;font-size:0.8rem;">
@@ -176,7 +212,7 @@
                             <div class="col-md-7" style="height:100%;">
                                 <div class="form_content" style="padding-right:30px;">
                                    <fieldset>
-                                        <legend class="text-center optional2">书本简介</legend>
+                                        <legend class="text-center optional2">*书本简介</legend>
                                         <div class="form-group" style="font-size:0.8rem;height:6rem;">
                                             <label class="col-md-2">简介</label>
                                             <textarea class="col-md-9" style="height:6rem;" placeholder="请输入少于200个字符"></textarea>
@@ -191,38 +227,98 @@
                                </form>
                             <script>
                                 //文本框信息校检
-                                $(function () {
-                                    $('form').bootstrapValidator({
-                                    message: 'This value is not valid',
-                                         feedbackIcons: {
-                                                    valid: 'glyphicon glyphicon-ok',
-                                                    invalid: 'glyphicon glyphicon-remove',
-                                                    validating: 'glyphicon glyphicon-refresh'
-                                                   },
-                                        fields: {
-                                            Pro_name: {
-                                                message: '书名验证失败',
-                                                validators: {
-                                                    notEmpty: {
-                                                        message: '书名不能为空'
-                                                    }
-                                                }
-                                            },
-                                            Pro_press: {
-                                                validators: {
-                                                    notEmpty: {
-                                                        message: '出版社不能为空'
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    });
-                                });
+//                                $(function () {
+//                                  <!--数据验证-->
+//                                  $("#Pro_details").bootstrapValidator({
+//                                       message:'This value is not valid',
+//                                    //   定义未通过验证的状态图标
+//                                       feedbackIcons: {/*输入框不同状态，显示图片的样式*/
+//                                        valid: 'glyphicon glyphicon-ok',
+//                                        invalid: 'glyphicon glyphicon-remove',
+//                                        validating: 'glyphicon glyphicon-refresh'
+//                                       },
+//                                    //   字段验证
+//                                       fields:{
+//                                        Pro_name:{
+//                                         validators:{
+//                                          notEmpty:{
+//                                           message:'书本名不能为空'
+//                                          }
+//                                         }
+//                                        }
+//                                       }
+//                                      })
+//                                 })
                             </script>
                             </div>
                         </div>
                     </div>
+                    
             </div>
+                <div class="container bg-light">
+                   <div class="foot_top"></div>
+                    <div class="row">
+                        <div class="col-md-5" style="">
+                            <div class="text-center">
+                                <h4 style="">联系我们</h4>
+                                <div style="border-bottom:1px solid gray;"></div>
+                                <div class="col-md-12 text-center">
+                                    <div class="col-md-10 text-left"> 
+                                        <div>
+                                            <span>电话&nbsp;<span class="glyphicon glyphicon-earphone"></span>：</span>
+                                            <span>0754-88888888</span>
+                                        </div>
+                                        <div>
+                                            <span>邮箱&nbsp;<span class="glyphicon glyphicon-envelope"></span>：</span>
+                                            <span>yishu.gcu.edu.cn</span>
+                                        </div>
+                                        <div>
+                                            <span style=""></span>
+                                            <span>地址&nbsp;<span class="glyphicon glyphicon-plane"></span>：</span>
+                                            <span>广州市花都区新华街道学府路1号</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-2">
+                           <div class="text-center">
+                                <img src="lib/bootstrap/img/font_under_logo.jpg" width='70%;'/>
+                            </div>
+                        </div>
+                        <div class="col-md-5" style="">
+                            <div class="text-center">
+                                <h4>用户指南</h4>
+                                <div style="border-bottom:1px solid gray;"></div>
+                                <div class="container">
+                                    <div class="col-md-9 text-right">
+                                        <div style="text-decoration:none;font-size:1rem;">
+                                           <div style="height:2rem;line-height:2.4rem;">
+                                               <span style="padding-right:10%;"><a href="#" style="color:black;">如何买书</a></span>
+                                               <span style="color:#ccc;">|</span>
+                                               <span style="padding-left:10%;"><a href="#" style="color:black;">信息修改</a></span>
+                                           </div>
+                                           <div style="height:2rem;line-height:2.4rem;">
+                                               <span style="padding-right:10%;"><a href="#" style="color:black;">关于我们</a></span>
+                                               <span style="color:#ccc;">|</span>
+                                               <span style="padding-left:10%;"><a href="#" style="color:black;">加入我们</a></span>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-md-12" style="background:#d1cfd0;">
+                                <span class="glyphicon glyphicon-paperclip"></span>
+                                <span style="margin-right:5%;">友情链接：</span>
+                                <span style="margin-right:5%;"><a href="http://jwxt.gcu.edu.cn">华广教务系统</a></span>
+                                <span><a href="http://www.gcu.edu.cn/">华南理工大学广州学院官网</a></span>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 </body>
