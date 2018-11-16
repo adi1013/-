@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <title>商品录入页</title>
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrapValidator.min.css">
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/mainPage.css"/>
     <script src="lib/jquery-3.3.1.js"></script>
+    <script src="lib/bootstrap/js/popper.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script src="lib/bootstrap/js/bootstrapValidator.min.js"></script>
 </head>
 <body style="height:1000px;">
     <div class="container-flush" style="height:100%;">
@@ -29,116 +32,193 @@
                       <div class="form_content">
                       <!--表单部分-->
                       <form>
-                       <fieldset>
-                            <legend class="text-center">图片录入</legend>
-                            <div class="col-md-7 float-left">
-                                <div class="form-group input-group " style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                    <label class="col-md-3 input-group-prepend">封面图</label>
-                                    <input type="file" class="form-control-file col-md-9" id="file1" style="height:1.8rem;" index=0>
-                                </div>
-                                <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;" index=1>
-                                    <label class="col-md-3 input-group-prepend">细节图</label>
-                                    <input type="file" class="form-control-file col-md-9" style="height:1.8rem;">
-                                </div>
-                                <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                    <label class="col-md-3 input-group-prepend">细节图</label>
-                                    <input type="file" class="form-control-file col-md-9" style="height:1.8rem;">
-                                </div>
-                                <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                    <label class="col-md-3 input-group-prepend">细节图</label>
-                                    <input type="file" class="form-control-file col-md-9" style="height:1.8rem;">
-                                </div>
-                            </div>
-                            <div class="col-md-5 float-right" style="height:100%;">
-                                <div class="col-md-12" style="height:48%;margin-top:8%;margin-bottom:1%;">
-                                    <img src="lib/bootstrap/img/高等数学.jpg" class="img-thumbnail" style="width:46%;height:70px;margin-left:1%;margin-right:1%;">
-                                    <img src="lib/bootstrap/img/logo.jpg" class="img-thumbnail" style="width:46%;height:70px;margin-left:1%;margin-right:1%;">
-                                </div>
-                                <div class="col-md-12" style="height:48%;margin-top:8%;margin-bottom:1%;">
-                                    <img src="lib/bootstrap/img/3.jpg" class="img-thumbnail" style="width:46%;height:70px;margin-left:1%;margin-right:1%;">
-                                    <img src="lib/bootstrap/img/高等数学.jpg" class="img-thumbnail" style="width:46%;height:70px;margin-left:1%;margin-right:1%;">
-                                </div>
-                            </div>
-                            <div style="clear:both;"></div>
-                        </fieldset>
-                        </div>
-                    </div>
-
-                    <script>
-                        //图片实时校检拦截
-                        $(function(){
-                            $('.form-control-file').each(function(){
-                                var _this = $(this);
-                                _this.bind('input propertychange change',function(event){
-                                    if(_this.val().length>0){
-                                       var oSuffix = _this.val().substring(_this.val().lastIndexOf('.'),_this.val().length);
-                                        if(oSuffix != '.jpg' && oSuffix != '.png' && oSuffix != '.gif'){
-                                            _this.val('');
-                                        }
-                                        else{
-                                            $('')
-                                        }
-                                    }
-                                });
-                            }); 
-                        });
-                    </script>
-                    <div class="col-md-6" style="height:100%;margin-top:5%;">
-                        <div class="form_content">
                            <fieldset>
-                                <legend class="text-center optional">书本信息录入</legend>
-                                    <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                        <label class="col-md-2 input-group-prepend">书本名</label>
-                                        <input type="text" class="form-control col-md-8" placeholder="请输入书名">
+                                <legend class="text-center">图片录入</legend>
+                            <!--图片文件选择-->
+                                <div class="col-md-7 float-left" id='upload'>
+                                    <div class="form-group input-group " style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                        <label class="col-md-3 input-group-prepend">封面图</label>
+                                        <input type="file" class="form-control-file col-md-9" id="file1" style="height:1.8rem;">
                                     </div>
                                     <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                        <label class="col-md-2 input-group-prepend">出版社</label>
-                                        <input type="text" class="form-control col-md-8" placeholder="请输入出版社">
+                                        <label class="col-md-3 input-group-prepend">细节图</label>
+                                        <input type="file" class="form-control-file col-md-9" style="height:1.8rem;">
                                     </div>
                                     <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                        <label class="col-md-2 input-group-prepend">作者</label>
-                                        <input type="text" class="form-control col-md-8" placeholder="请输入作者">
+                                        <label class="col-md-3 input-group-prepend">细节图</label>
+                                        <input type="file" class="form-control-file col-md-9" style="height:1.8rem;">
                                     </div>
                                     <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                        <label class="col-md-2 input-group-prepend">ISBN</label>
-                                        <input type="text" class="form-control col-md-8" placeholder="请输入书籍ISBN号">
+                                        <label class="col-md-3 input-group-prepend">细节图</label>
+                                        <input type="file" class="form-control-file col-md-9" style="height:1.8rem;">
                                     </div>
-                                    <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                        <label class="col-md-2 input-group-prepend">版本</label>
-                                        <input type="text" class="form-control col-md-8" placeholder="第7版">
+                                </div>
+                            <!-- 图片显示-->
+                                <div class="col-md-5 float-right" style="height:100%;" id="img-thumb">
+                                    <div class="col-md-12" style="height:48%;margin-top:8%;margin-bottom:1%;">
+                                        <img src="lib/bootstrap/img/init.jpg" id="view0" class="img-thumbnail" style="width:46%;height:70px;margin-left:1%;margin-right:1%;" data-toggle="tooltip" data-placement="bottom" title="点击查看大图">
+                                        <img src="lib/bootstrap/img/init.jpg" id="view1" class="img-thumbnail" style="width:46%;height:70px;margin-left:1%;margin-right:1%;" data-toggle="tooltip" data-placement="bottom" title="点击查看大图">
                                     </div>
-                                    <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                        <label class="col-md-2 input-group-prepend">适合专业</label>
-                                        <input type="text" class="form-control col-md-8" placeholder="软件工程">
+                                    <div class="col-md-12" style="height:48%;margin-top:8%;margin-bottom:1%;">
+                                        <img src="lib/bootstrap/img/init.jpg" id="view2" class="img-thumbnail" style="width:46%;height:70px;margin-left:1%;margin-right:1%;" data-toggle="tooltip" data-placement="bottom" title="点击查看大图">
+                                        <img src="lib/bootstrap/img/init.jpg" id="view3" class="img-thumbnail" style="width:46%;height:70px;margin-left:1%;margin-right:1%;" data-toggle="tooltip" data-placement="bottom" title="点击查看大图"/>
                                     </div>
-                                    <div class="form-group input-group text-right" style="height:2rem;line-height:2rem;font-size:0.8rem;">
-                                         <label class="col-md-2 input-group-prepend">价格</label>
-                                         <input type="text" class="form-control col-md-2" placeholder="价格">
-                                         <span class="col-md-1"></span>
-                                         <label class="col-md-2 input-group-prepend">数量</label>
-                                         <input type="text" class="form-control col-md-2" placeholder="0">
-                                    </div>
+                                </div>
+                                <div style="clear:both;"></div>
                             </fieldset>
+                            </div>
+                        </div>
+
+                       <div class="modal fade bd-example-modal-sm" id="imgModal" aria-hidden="true" style="top:20%;">
+                            <div class="modal-dialog">
+                                <div class="modal-content" >
+                                    <div class="modal-header">
+                                        <h5 style="font-weight:bolder;">图片预览</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="" style="width:100%;height:250px;opacity:0.9;" id="bigImg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="height:100%;margin-top:5%;">
+                            <div class="form_content">
+                               <fieldset>
+                                    <legend class="text-center optional">书本信息录入</legend>
+
+                                       <!--文本信息录入--->
+
+                                        <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                            <label class="col-md-2 input-group-prepend">书本名</label>
+                                            <input type="text" class="form-control col-md-8" placeholder="UML2基础、建模与设计教程" name="Pro_name">
+                                        </div>
+                                        <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                            <label class="col-md-2 input-group-prepend">出版社</label>
+                                            <input type="text" class="form-control col-md-8" placeholder="清华大学出版社" name="Pro_press">
+                                        </div>
+                                        <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                            <label class="col-md-2 input-group-prepend">作者</label>
+                                            <input type="text" class="form-control col-md-8" placeholder="杨弘平" name="Pro_author">
+                                        </div>
+                                        <!--isbn与版本可能数据库未配-->
+                                        <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                            <label class="col-md-2 input-group-prepend">ISBN</label>
+                                            <input type="text" class="form-control col-md-8" placeholder="978-7-302-40449-1" name="Pro_isbn">
+                                        </div>
+                                        <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                            <label class="col-md-2 input-group-prepend">版本</label>
+                                            <input type="text" class="form-control col-md-8" placeholder="2015" name="Pro_version">
+                                        </div>
+                                        <div class="form-group input-group" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                            <label class="col-md-2 input-group-prepend">适合专业</label>
+                                            <input type="text" class="form-control col-md-8" placeholder="软件工程" name="major">
+                                        </div>
+                                        <div class="form-group input-group text-right" style="height:2rem;line-height:2rem;font-size:0.8rem;">
+                                             <label class="col-md-2 input-group-prepend">价格</label>
+                                             <input type="text" class="form-control col-md-2" placeholder="价格" name="Pro_price">
+                                             <span class="col-md-1"></span>
+                                             <label class="col-md-2 input-group-prepend">数量</label>
+                                             <input type="text" class="form-control col-md-2" placeholder="0" name="Pro_num">
+                                        </div>
+                                </fieldset>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row" style="height:38%;">
-                        <div class="col-md-7" style="height:100%;">
-                            <div class="form_content" style="padding-right:30px;">
-                               <fieldset>
-                                    <legend class="text-center optional2">书本简介</legend>
-                                    <div class="form-group" style="font-size:0.8rem;height:6rem;">
-                                        <label class="col-md-2">简介</label>
-                                        <textarea class="col-md-9" style="height:6rem;"></textarea>
-                                    </div>
-                                    <div class="form-group input-group" style="height:2rem;line-height:2rem;">
-                                        <span class="col-md-3"></span>
-                                        <input class="btn btn-sm col-md-2 border border-danger" style="background:#ffeded;color:red;border-radius:0;" type="submit" value="提交商品"/>
-                                        <span class="col-md-2"></span>
-                                        <input class="btn btn-sm col-md-2 border border-info" style="background:#b8babb;color:white;border-radius:0;" type="reset" value="重置商品"/>
-                                    </div>
-                                </fieldset>
+                    <script>
+                            //图片实时校检拦截与显示
+                            $(function(){
+                                $('#upload input.form-control-file').each(function(){
+                                    var _this = $(this);
+                                    _this.bind('input propertychange change',function(event){
+                                        if(_this.val().length>0){
+                                           var oSuffix = _this.val().substring(_this.val().lastIndexOf('.'),_this.val().length);
+                                            if(oSuffix != '.jpg' && oSuffix != '.png' && oSuffix != '.gif'){
+                                                _this.val('');
+                                            }
+                                            else{
+                                                var oView='#view';
+                                                var temp = oView+_this.index('#upload input.form-control-file');//id
+                                                var oFr = new FileReader();
+                                                oFr.readAsDataURL(_this[0].files[0]);
+                                                oFr.onloadend = function(event){
+                                                    var oEvent = event||ev;
+                                                    $(temp)[0].src = oEvent.target.result;
+                                                    $("[data-toggle='tooltip']").tooltip();
+                                                }
+                                            }
+                                        }
+                                    });
+                                }); 
+                            });
+                            //图片放大显示
+                            $(function(){
+                                $("#img-thumb img.img-thumbnail").each(function(){
+                                    var _this = $(this);
+                                    _this.on("click",function(){
+                                        var oImgsrc=_this[0].src;
+                                        oName = oImgsrc.substring(oImgsrc.lastIndexOf('/'),oImgsrc.lastIndexOf('.'));
+                                        if(oName != '/init'){
+                                            $("#bigImg")[0].src=_this[0].src;
+                                            $("#imgModal").modal({
+                                                backdrop: true,
+                                                keyboard: false,
+                                                show:true
+                                            });
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
+                    <div class="row" style="height:38%;">
+                            <div class="col-md-7" style="height:100%;">
+                                <div class="form_content" style="padding-right:30px;">
+                                   <fieldset>
+                                        <legend class="text-center optional2">书本简介</legend>
+                                        <div class="form-group" style="font-size:0.8rem;height:6rem;">
+                                            <label class="col-md-2">简介</label>
+                                            <textarea class="col-md-9" style="height:6rem;" placeholder="请输入少于200个字符"></textarea>
+                                        </div>
+                                        <div class="form-group input-group" style="height:2rem;line-height:2rem;">
+                                            <span class="col-md-3"></span>
+                                            <input class="btn btn-sm col-md-2 border border-danger" style="background:#ffeded;color:red;border-radius:0;" type="submit" value="提交商品"/>
+                                            <span class="col-md-2"></span>
+                                            <input class="btn btn-sm col-md-2 border border-info" style="background:#b8babb;color:white;border-radius:0;" type="reset" value="重置商品"/>
+                                        </div>
+                                    </fieldset>
                                </form>
+                            <script>
+                                //文本框信息校检
+                                $(function () {
+                                    $('form').bootstrapValidator({
+                                    message: 'This value is not valid',
+                                         feedbackIcons: {
+                                                    valid: 'glyphicon glyphicon-ok',
+                                                    invalid: 'glyphicon glyphicon-remove',
+                                                    validating: 'glyphicon glyphicon-refresh'
+                                                   },
+                                        fields: {
+                                            Pro_name: {
+                                                message: '书名验证失败',
+                                                validators: {
+                                                    notEmpty: {
+                                                        message: '书名不能为空'
+                                                    }
+                                                }
+                                            },
+                                            Pro_press: {
+                                                validators: {
+                                                    notEmpty: {
+                                                        message: '出版社不能为空'
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    });
+                                });
+                            </script>
                             </div>
                         </div>
                     </div>
