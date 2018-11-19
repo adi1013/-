@@ -524,17 +524,34 @@
                                             function(){over($('#desc'));},
                                             function(){if(temp2==false){out($('#desc'));}}
                                         );
+                                        //转jsp时<div class="row text-center" style="padding-left:1rem;" id="products">加上products
+                                        //商品排序回调函数
+                                        var asc = function(a , b){
+                                            return  parseFloat($(a).find("span.pro_price").html().substring(1,$(a).find("span.pro_price").html().length) )-  parseFloat($(b).find("span.pro_price").html().substring(1,$(b).find("span.pro_price").html().length)) ;
+                                        }
+                                        
+                                        var desc = function(a,b){
+                                            return parseFloat($(b).find("span.pro_price").html().substring(1,$(b).find("span.pro_price").html().length) )- parseFloat($(a).find("span.pro_price").html().substring(1,$(a).find("span.pro_price").html().length) );
+                                        }
+                                        
+                                        var sortByPrice = function(sortBy){
+                                            results = $('#products div.card').sort(sortBy);
+                                            $('#products').empty().append(results);
+                                        }
+                                        
                                        $('#asc').click(function(){
                                             temp1=true;
                                             temp2=false;
                                             $('#desc').css("background","white");
                                             $('#asc').css("background","linear-gradient(#89eefa,white)");
+                                            sortByPrice(asc);
                                        });
                                        $('#desc').click(function(){
                                             temp2=true;
                                             temp1=false;
                                             $('#asc').css("background","white");
                                             $('#desc').css("background","linear-gradient(#89eefa,white)");
+                                           sortByPrice(desc);
                                        });
                                     });
                                </script>
@@ -557,7 +574,7 @@
                </nav>
               <img src="lib/bootstrap/img/bord.jpg"  style="width:100%;height:20px;"/>
               <div style="height:1em;"></div>
-              <div class="row text-center" style="padding-left:1rem;">
+              <div class="row text-center" style="padding-left:1rem;" id="products">
                   <div class="card row_bottom" style="width:17rem;height:26rem;margin-right:0.5rem;">
                         <div style="width:17rem;height:18rem;">
                           <a href="#">
@@ -590,7 +607,7 @@
                               </a>
                             </div>
                             <p class="card-text in_one_row "><span class="card-title">阳平华、***主编</span></p>
-                            <span class="car-link pro_price">￥15.00</span>
+                            <span class="car-link pro_price">￥20.00</span>
                             &nbsp;&nbsp;&nbsp;
                             <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
                         </div>
@@ -608,7 +625,7 @@
                               </a>
                             </div>
                             <p class="card-text in_one_row "><span class="card-title">阳平华、***主编</span></p>
-                            <span class="car-link pro_price">￥15.00</span>
+                            <span class="car-link pro_price">￥200.00</span>
                             &nbsp;&nbsp;&nbsp;
                             <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
                         </div>
@@ -627,7 +644,7 @@
                               </a>
                             </div>
                             <p class="card-text in_one_row "><span class="card-title">阳平华、***主编</span></p>
-                            <span class="car-link pro_price">￥15.00</span>
+                            <span class="car-link pro_price">￥13.00</span>
                             &nbsp;&nbsp;&nbsp;
                             <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
                         </div>
@@ -645,7 +662,7 @@
                               </a>
                             </div>
                             <p class="card-text in_one_row "><span class="card-title">阳平华、***主编</span></p>
-                            <span class="car-link pro_price">￥15.00</span>
+                            <span class="car-link pro_price">￥19.00</span>
                             &nbsp;&nbsp;&nbsp;
                             <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
                         </div>
@@ -683,7 +700,7 @@
                               </a>
                             </div>
                             <p class="card-text in_one_row "><span class="card-title">阳平华、***主编</span></p>
-                            <span class="car-link pro_price">￥15.00</span>
+                            <span class="car-link pro_price">￥30.00</span>
                             &nbsp;&nbsp;&nbsp;
                             <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
                         </div>
@@ -702,7 +719,7 @@
                               </a>
                             </div>
                             <p class="card-text in_one_row "><span class="card-title">阳平华、***主编</span></p>
-                            <span class="car-link pro_price">￥15.00</span>
+                            <span class="car-link pro_price">￥45.00</span>
                             &nbsp;&nbsp;&nbsp;
                             <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
                         </div>
@@ -721,30 +738,11 @@
                               </a>
                             </div>
                             <p class="card-text in_one_row "><span class="card-title">阳平华、***主编</span></p>
-                            <span class="car-link pro_price">￥15.00</span>
+                            <span class="car-link pro_price">￥40.00</span>
                             &nbsp;&nbsp;&nbsp;
                             <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
                         </div>
                     </div>
-                    <div class="card row_bottom" style="width:17rem;height:26rem;margin-right:0.5rem;">
-                        <div style="width:17rem;height:18rem;">
-                          <a href="#">
-                            <img class="card-img-top" style="width:15rem;height:18rem;" src="lib/bootstrap/img/高等数学.jpg" alt="高等数学">
-                          </a>
-                        </div>
-                        <div class="card-block" style="width:17rem;height:8rem;padding-top:1rem;">
-                           <div class=" text-center " style="width:17rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
-                              <a href="#">
-                                  <span class="card-title pro_name">高等数学</span>
-                              </a>
-                            </div>
-                            <p class="card-text in_one_row "><span class="card-title">阳平华、***主编</span></p>
-                            <span class="car-link pro_price">￥15.00</span>
-                            &nbsp;&nbsp;&nbsp;
-                            <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
-                        </div>
-                    </div>
-
                     <div class="card row_bottom" style="width:17rem;height:26rem;margin-right:0.5rem;">
                         <div style="width:17rem;height:18rem;">
                           <a href="#">
@@ -777,7 +775,26 @@
                               </a>
                             </div>
                             <p class="card-text in_one_row "><span class="card-title">阳平华、***主编</span></p>
-                            <span class="car-link pro_price">￥15.00</span>
+                            <span class="car-link pro_price">￥80.00</span>
+                            &nbsp;&nbsp;&nbsp;
+                            <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
+                        </div>
+                    </div>
+
+                    <div class="card row_bottom" style="width:17rem;height:26rem;margin-right:0.5rem;">
+                        <div style="width:17rem;height:18rem;">
+                          <a href="#">
+                            <img class="card-img-top" style="width:15rem;height:18rem;" src="lib/bootstrap/img/高等数学.jpg" alt="高等数学">
+                          </a>
+                        </div>
+                        <div class="card-block" style="width:17rem;height:8rem;padding-top:1rem;">
+                           <div class=" text-center " style="width:17rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                              <a href="#">
+                                  <span class="card-title pro_name">高等数学</span>
+                              </a>
+                            </div>
+                            <p class="card-text in_one_row "><span class="card-title">阳平华、***主编</span></p>
+                            <span class="car-link pro_price">￥99.00</span>
                             &nbsp;&nbsp;&nbsp;
                             <span class="text-right cark-link pro_collected text-muted">15人收藏</span>
                         </div>
