@@ -1,4 +1,4 @@
-.tologin_and_register{
+﻿.tologin_and_register{
     background:white; 
     height:80%;
     line-height:80%;
@@ -90,11 +90,11 @@
     color: lightgray;
     font-size: 12px;
 }
-.row .card a{
+.card a{
     text-decoration: none;
     color: black;
 }
-.row .card a:hover{
+.card a:hover{
     color: black;
     text-decoration: underline;
 }
@@ -252,15 +252,54 @@ a:hover{
     opacity: 0.2;
     filter: Alpha(opacity=20);
 }
+#left_c{
+width:5%;position:absolute;left:0;top:0;height:100%;
+}
+#left_c #left{
+height:30%;widht:50%;border:1px solid black;border-radius:100%;margin-right:25%;
+}
+.fill{
+height:35%;width:100%;
+}
+.icon{
+padding-top:45%;padding-left:30%;
+}
+#parent{
+width:90%;height:100%;position:relative;left:5%;bottom:0;overflow:auto;
+}
+#pro_c{
+width:100%;height:100%;white-space: nowrap; overflow-y:  hidden;overflow-x:hidden;
+}
 
-
-
+#tuijian{
+   height:75%;width:100%;margin:auto 0;position:relative;
+}
+.tuijian_title{
+   height:2rem;line-height:2rem;border:1px solid red;color:red;font-size:1rem;background:#ffeded;border-radius:1rem 3rem 3rem 1rem;
+}
+.tuijian_con{
+  height:25%;width:70%;margin:0 auto;
+}
+.tuijian_border{
+  width:100%;height:20px;
+}
 .pro_details_txt{
     height:2rem;
     line-height:2rem;
     font-size:0.8rem;
 }
-
+.tuijian_pro_img_con{
+width:24%;height:100%;margin-right:1%;display:inline-block;
+}
+.tuijian_pro_img{
+height:80%;width:100%;
+}
+#right_c{
+width:5%;float:right;position:absolute;right:0;top:0;height:100%;
+}
+#right{
+height:30%;widht:50%;border:1px solid black;border-radius:100%;margin-left:25%;
+}
 .modalImg{
     width:100%;height:250px;opacity:0.9;
 }
