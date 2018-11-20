@@ -38,22 +38,36 @@
             </div>
         </form>
   </div>
-<div class='container' id="abc"><div id='1'> <div class='name'>bbbb</div> <div class='number'><input type='text' value='110'></div></div><div id='2'> <div class='name'>cccc</div> <div class='number'><input type='text' value='120'></div></div><div id='3'> <div class='name'>dddd</div> <div class='number'><input type='text' value='140'></div></div></div>
-<div class="container"><button id="desc">降序</button>
-<button id="asc" >升序</button></div>
-<script>
-    $(function() { 
-        var asc = function(a, b) { 
-            return $(a).find('input').val() > $(b).find('input').val() ? 1 : -1; 
-        } 
-        var desc = function(a, b) {        
-            return $(a).find('input').val() > $(b).find('input').val() ? -1 : 1; 
-        } 
-        var sortByInput = function(sortBy) { 
-            var sortEle = $('.container>div').sort(sortBy); $('#abc').empty().append(sortEle); 
-        } 
-        $('#desc').click(function() { sortByInput(desc); }); 
-        $('#asc').click(function() { sortByInput(asc); });}) 
-</script>
+<style type="text/css">
+.mt {
+    width: 600px;
+    height: 200px;
+    overflow: auto;
+}
+.mk {
+    white-space: nowrap;
+}
+.mj {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #999;
+    display: inline-block;
+}
+</style>
+</head>
+<body>
+<div class="mt">
+    <div class="mk">
+        <div class="mj"></div>
+        <div class="mj"></div>
+        <div class="mj"></div>
+        <div class="mj"></div>
+        <div class="mj"></div>
+        <div class="mj"></div>
+        <div class="mj"></div>
+        <div class="mj"></div>
+        <div class="mj"></div>
+    </div>
+</div>
 </body>
 </html>
