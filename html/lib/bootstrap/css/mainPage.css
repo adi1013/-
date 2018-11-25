@@ -223,7 +223,7 @@
 .table .right_td{
     font-size: 0.8em;
 }
-.table .shop_now{
+.shop_now{
     font-size:1em;background:#ffeded;color:#ff0036;border-radius:0;
 }
 .table .shop_car{
@@ -244,6 +244,23 @@ a:hover{
     filter: Alpha(opacity=100);
     opacity: 1.0;
 }
+.order{
+height:100px;width:100%;border:1px solid #eaeef1;background:linear-gradient(white, #f9f9f9);
+}
+.order .order_img_con{
+width:30%;height:100px;float:left;
+}
+.order .order_img_con #order-img{
+width:90px;height:90px;margin-top:5px;
+}
+.order .order_details{width:70%;height:100px;float:right;}
+.order .order_details #order_name{margin-left:40px;margin-top:20px;font-weight:bold;}
+.order .order_details .order_news{width:70%;height:100px;float:left;}
+.order .order_details .order_price_con{color:red;font-size:20px;margin-left:40px;margin-top:20px;}
+.order .order_details .pros{width:30%;height:100px;float:right;}
+.order .order_details .pros .number{font-size:30px;font-weight:bold;color:red;height:100px;line-height:100px;}
+.cancel{background:#e6e7e2;color:black;}
+.modal-footer a.cancel:hover{color:black;}
 .chevron_show{
     opacity: 0.6;
     filter: Alpha(opacity=60);

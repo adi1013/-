@@ -63,8 +63,9 @@
             <div class="col-md-4 text-center d_left_c">
                 <div class="l_content" id="lcontent">
                     <ul class="list-group" id="imgul">
+                       <!--主显示图id-->
                         <li class="li_sty">
-                            <img src="lib/bootstrap/img/font_under_logo.jpg" class="img-thumbnail select"/>
+                            <img src="lib/bootstrap/img/font_under_logo.jpg" class="img-thumbnail select" id="main_img"/>
                         </li>
                         <li class="li_sty">
                             <img src="lib/bootstrap/img/3.jpg" class="img-thumbnail unselect"/>
@@ -115,7 +116,7 @@
         </div>
         <div class="col-md-6" style="height:80%;">
             <div class="col-md-6 text-center">
-                <h4 style="padding-top:1%;">高等数学</h4>
+                <h4 style="padding-top:1%;" id="name">高等数学</h4>
             </div>
             <table class="table" style="font-size:1em;">
                 <tr>
@@ -124,7 +125,7 @@
                 </tr>
                 <tr>
                     <td class="text-right left_td">现价</td>
-                    <td class="pro_price"><span class="glyphicon glyphicon-jpy"></span><b>15.00</b></td>
+                    <td class="pro_price"><span class="glyphicon glyphicon-jpy"></span><b id="price">15.00</b></td>
                 </tr>
                 <tr>
                     <td class="text-right left_td">出版社</td>
@@ -150,7 +151,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><a class="btn btn-md border border-danger shop_now" href="#">现在购买</a></td>
+                   <!--加id-->
+                    <td><a class="btn btn-md border border-danger shop_now" href="javascript:void(0)" id="shopping_now">现在购买</a></td>
                     <td>
                         <a class="btn btn-md shop_car" href="#"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;加入购物车</a>
                         <a class="btn btn-lg border border-danger shop_now" href="#" style="opacity:0.8;">
@@ -158,6 +160,39 @@
                         </a>
                     </td>
                 </tr>
+                <!--订单信息窗口-->
+                <div class="modal fade bd-example-modal-sm" id="orderModal" aria-hidden="true" style="top:20%;">
+                            <div class="modal-dialog">
+                                <div class="modal-content" >
+                                    <div class="modal-header">
+                                        <h5 style="font-weight:bolder;">订单信息</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="order">
+                                            <div class="text-center order_img_con">
+                                                <img class="img-thumbnail" src="lib/bootstrap/img/1.jpg" id="order-img">
+                                            </div>
+                                            <div class="order_details">
+                                                <div class="order_news">
+                                                    <h5 id="order_name" class="in_one_row">高等数学</h5>
+                                                    <span class="order_price_con"><span class="glyphicon glyphicon-jpy"></span><b id="order_price">100.00</b></span>
+                                                </div>
+                                                <div class="pros">
+                                                    <span class="number">&times;<i id="order_contain_pro">3</i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="margin-right:30px;">
+                                        <a class="btn btn-md border border-danger shop_now" type="button" href="#" style="margin-right:10px;">付款</a>
+                                        <a class="btn btn-md cancel" href="javascript:void(0)" type="button" data-dismiss="modal">取消</a>
+                                    </div>
+                                </div>
+                            </div>
+                 </div>
             </table>
             <script>
                 $(function(){
@@ -177,6 +212,20 @@
                         });
                     
                 });
+                
+                $(function(){
+                    $("#shopping_now").click(function(){
+                        $("#order-img")[0].src=$("#main_img")[0].src;
+                        $("#order_name").html($('#name').html());
+                        $("#order_price").html(parseInt($("#sum").val())*parseFloat($("#price").html()));
+                        $("#order_contain_pro").html($("#sum").val());
+                        $("#orderModal").modal({
+                                                backdrop: true,
+                                                keyboard: false,
+                                                show:true
+                                            });
+                    });
+                })
             </script>
         </div>
     </div>

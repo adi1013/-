@@ -11,7 +11,7 @@
     <meta name="viewport" content="user-scalable=no">
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/toLogin.css">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/mainPage.css">
     
       <script src="lib/jquery-3.3.1.js"></script>
   <script src="lib/bootstrap/js/bootstrap.js"></script>
@@ -77,12 +77,14 @@
 </style>
 </head>
 <body>
+<!--
 <form method='post' enctype="multipart/form-data">
 <input style="width:80px;height:30px;line-height: 30px;position:absolute;z-index: 1;opacity: 0;" id="f_file" type="file" name="image" style="border:1px solid red;"/>
 <label for="f_file">
        <input type="button" value="更换头像" style="width:80px;height:30px;font-size:8px;color:#fff;background: #28abde;order-radius:5px;position:absolute;" />
 </label>
 </form>
+-->
 <!--
 <div class="mt">
     <div class="mk">
@@ -98,5 +100,12 @@
     </div>
 </div>
 -->
+<button class="btn btn-danger" id="order-btn">点击生成订单</button>
+<script>
+    $("#order-btn").click(function(){
+        $("#orderModal").modal();
+    });
+</script>
+
 </body>
 </html>
