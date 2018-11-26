@@ -1,0 +1,378 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/yishu_myselfpage.css">
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/mainPage.css">
+
+	<script type="text/javascript" src="lib/jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/js/yishu_myselfpage.js"></script>
+</head>
+<body>
+	<div id="select_main">
+       <nav aria_label="breadcrumb breadcrumbback" style="height:2.2em;">
+            <ol class="breadcrumb bread_sty">
+                <li class="breadcrumb-item"><a href="#" class="personal_break">主页</a></li>
+                <li class="breadcrumb-item active"><a class="personal_active_bre">个人中心</a></li>
+            </ol>
+        </nav>
+        <img src="lib/bootstrap/img/bord.jpg"  style="width:100%;height:20px;"/>
+        <div style="height:40%;">
+            <div class="personal_news_part" id="part">
+                <div class="personal_head_con">
+                    <img src="lib/bootstrap/img/3.jpg" class="img-thumbnail rounded-circle personal_head">
+                </div>
+                <div class="person_name_con text-center">
+                    <p class="personal_name">涛哥哥</p>
+                </div>
+                <div class="personal_upd_change text-center">
+                    <div class="personal_change_con">
+                        <a href="javascript:void(0)" class="personal_change" id="change">&nbsp;更改信息&nbsp;</a>
+                    </div>
+                    <div class="personal_upd_con">
+                        <a href="商品录入页面.html" class="personal_upd">&nbsp;上传商品&nbsp;</a>
+                    </div>
+                </div>
+            </div>
+            <div id="change_news">
+                <div class="wrap">
+                    <div class="left_con">
+                        <div class="text-center head_con">
+                            <img src="lib/bootstrap/img/3.jpg" class="img-thumbnail rounded-circle head" id="change_head_img">
+                        </div>
+                    <!--更改信息表单起始位置-->
+                        <form>
+                            <div class="form-group file_btn_con">
+                                <input id="f_file" type="file"/>
+                                <label for="f_file">
+                                       <input type="button" value="更换头像" class="btn change_head_btn"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="right_con">
+                           <!--学号-->
+                            <div class="form-group has-feedback input-group input-group-sm" style="width:70%;margin-top:5%;">
+                                <span class="input-group-text rounded-left clear_right-radius">
+                                    <span class=" glyphicon glyphicon-user form-control-feedback"></span>
+                                </span>  
+                                <input type="text" class="form-control" placeholder="学号" required> 
+                            </div>
+                            <!--手机号码-->
+                            <div class="form-group has-feedback input-group input-group-sm" style="width:70%;margin-top:5%;">
+                                <span class="input-group-text rounded-left clear_right-radius">
+                                    <span class=" glyphicon glyphicon-phone form-control-feedback"></span>
+                                </span>  
+                                <input type="text" class="form-control" placeholder="手机号码" required> 
+                            </div>
+                            <!--专业信息-->
+                            <div class="form-group has-feedback input-group input-group-sm" style="width:70%;margin-top:5%;">
+                                <span class="input-group-text rounded-left clear_right-radius">
+                                    <span class="glyphicon glyphicon-education form-control-feedback"></span>
+                                </span>  
+                                <input type="text" class="form-control" placeholder="专业" required> 
+                            </div>
+                            <!--真实姓名-->
+                            <div class="form-group has-feedback input-group input-group-sm" style="width:70%;margin-top:5%;">
+                                <span class="input-group-text rounded-left clear_right-radius">
+                                    <span class="glyphicon glyphicon-sunglasses form-control-feedback"></span>
+                                </span>  
+                                <input type="text" class="form-control" placeholder="真实姓名" required> 
+                            </div>
+
+                            <div class="form-group" style="width:70%;margin-top:5%;">
+                                <button type="submit" class="btn btn-danger btn-sm" style="width:80px;margin-right:50px;">确定</button>
+                                <button type="reset" class="btn btn-dark btn-sm" style="width:80px;" id="return">返回</button>
+                            </div>
+                        </form>
+                        <!--表单结束-->      
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            //切换效果
+                $(function(){
+                        $('#change').click(function(){
+                            $('#part').hide(1000,'swing',function(){
+                            $('#change_news').fadeIn('slow');
+                        });
+                    });
+                });
+
+                $(function(){
+                        $('#return').click(function(){
+                            $('#change_news').hide('slow','linear',function(){
+                            $('#part').fadeIn(2000);
+                         });
+                    });
+                 });  
+                $(function(){
+                    $('#f_file').bind('input propertychange change',function(event){
+                        suffix = $(this).val();
+                        if(suffix.substring(suffix.lastIndexOf('.'),suffix.length) == '.jpg' || suffix.substring(suffix.lastIndexOf('.'),suffix.length) == '.png'){
+                            var oFr = new FileReader();
+                            oFr.readAsDataURL($(this)[0].files[0]);
+                            oFr.onloadend = function(event){
+                                var oEvent = event||ev;
+                                suffix = oEvent.target.result;
+                                $('#change_head_img')[0].src = oEvent.target.result;
+                            }
+                        }else{
+                            //提示消息，暂留   
+                        }
+                    });               
+                }); 
+        </script>
+		<div style="height: 20px;border-bottom:1px  solid rgba(226,226,226,0.6 );"></div>
+		<div class="select_type">
+			<nav role="navigation">
+				<ul class="nav nav-tabs">
+					<li role="presentation" id="select_type_sale" class="select_type_myclass">出售</li>
+				    <li role="presentation" id="select_type_buy">订单</li>
+				    <li role="presentation" id="select_type_like">购物车</li>
+				</ul>
+			</nav>
+		</div>
+		<div id="goods_sale">	
+			<div class="table_show">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<th>订单号</th>
+							<th>订单详情</th>
+							<th>数量</th>
+							<th>金额</th>
+							<th>买家信息</th>
+							<th>购买时间</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>鼠标</td>
+							<td>1</td>
+							<td>1000</td>
+							<td>张三</td>
+							<td>2018-01-02</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div style="clear: both;"></div>
+			<div class="select_main_page_numb">
+				[<a href="#">上一页</a>]
+				<span>1</span>
+				[<a href="#">下一页</a>]
+			</div>
+		</div>
+		<div id="goods_buy">
+			
+			<div class="table_show">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<th>订单号</th>
+							<th>订单详情</th>
+							<th>数量</th>
+							<th>金额</th>
+							<th>买家信息</th>
+							<th>购买时间</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>鼠标</td>
+							<td>1</td>
+							<td>1000</td>
+							<td>张三</td>
+							<td>2018-01-02</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div style="clear: both;"></div>
+			<div class="select_main_page_numb">
+				[<a href="#">上一页</a>]
+				<span>1</span>
+				[<a href="#">下一页</a>]
+			</div>
+		</div>
+		<div id="goods_like">
+			
+			<div class="table_show">
+				<table class="table table-bordered" id="shopping_cart_table">
+				    <thead>
+				        <tr>
+							<th>勾选</th>
+							<th>商品名</th>
+							<th>单价</th>
+							<th>数量</th>
+							<th>小结金额</th>
+							<th>编辑</th>
+						</tr>
+				    </thead>
+					<tbody id="shopping_car">
+						
+						<tr>
+							<td id="checkorno">
+								<input type="checkbox" name="selected" style="height: 50px;width: 25px">
+							</td>
+							<td>鼠标</td>
+							<td id="pro_price">991.00</td>
+							<td id="pro_num_td">
+								<a href="javascript:void(0);" id="sub">-</a>
+								<input type="text" value="1" id="pro_num" style="width: 30px;">
+								<a href="javascript:void(0);" id="add">+</a>
+								<div class="clear"></div>
+							</td>
+							<td id="record_price">0</td>
+							<td>
+								<button type="button" class="btn btn-danger" id="del_row" onclick="del_row(this)">删除</button>
+							</td>
+						</tr>
+						
+						
+						<tr>
+							<td id="checkorno">
+								<input type="checkbox" name="selected" style="height: 50px;width: 25px">
+							</td>
+							<td>鼠标</td>
+							<td id="pro_price">991.00</td>
+							<td id="pro_num_td">
+								<a href="javascript:void(0);" id="sub">-</a>
+								<input type="text" value="1" id="pro_num" style="width: 30px;">
+								<a href="javascript:void(0);" id="add">+</a>
+								<div class="clear"></div>
+							</td>
+							<td id="record_price">0</td>
+							<td>
+								<button type="button" class="btn btn-danger" id="del_row" onclick="del_row(this)">删除</button>
+							</td>
+						</tr>
+						
+						<tr>
+							<td id="checkorno">
+								<input type="checkbox" name="selected" style="height: 50px;width: 25px">
+							</td>
+							<td>鼠标</td>
+							<td id="pro_price">991.00</td>
+							<td id="pro_num_td">
+								<a href="javascript:void(0);" id="sub">-</a>
+								<input type="text" value="1" id="pro_num" style="width: 30px;">
+								<a href="javascript:void(0);" id="add">+</a>
+								<div class="clear"></div>
+							</td>
+							<td id="record_price">0</td>
+							<td>
+								<button type="button" class="btn btn-danger" id="del_row" onclick="del_row(this)">删除</button>
+							</td>
+						</tr>
+						<script>
+                            //显示单条记录价格
+                            function showPrice(obj){
+                                var oRecord= obj.parent().parent().children('#record_price');
+                                var oPrice = obj.parent().parent().children('#pro_price');
+                                oRecord.html(parseFloat(oPrice.html())*parseInt(obj.val()));
+                            }
+                            $(function(){
+                                $('#shopping_car tr')
+                                            .each(function(){
+                                                var _this = $(this);
+                                                var _thisPronumtd = _this.children("#pro_num_td");
+                                                _thisPronumtd.children("#add").bind('click',function(){
+                                                    //el填进去，把该商品库存填进去
+//                                                    if(parseInt($(this).parent().children('#pro_num').val())<""){
+                                                            var oProNum = $(this).parent().children('#pro_num');
+                                                            oProNum.val(parseInt(oProNum.val())+1);
+                                                            showPrice(oProNum);
+//                                                    }
+                                                });
+                                                _thisPronumtd.children("#sub").bind('click',function(){
+                                                    if(parseInt($(this).parent().children('#pro_num').val())>1){
+                                                            var oProNum = $(this).parent().children('#pro_num');
+                                                            oProNum.val(parseInt(oProNum.val())-1);
+                                                            showPrice(oProNum);
+                                                    }
+                                                });
+                                            });
+                            });
+                            //结算价格
+                            $(function(){
+                                $('#shopping_car :checkbox').on("change",function(){
+                                    oAllMoney = parseFloat($("#cart_all_money_sum").html());
+                                    var oRecordP = parseFloat($(this).parent().parent().children('#record_price').html());
+                                    if($(this).is(':checked')){
+                                        $("#cart_all_money_sum").html(oAllMoney+oRecordP);
+                                    }else{
+                                        $("#cart_all_money_sum").html(oAllMoney-oRecordP);
+                                    }
+                                });
+                            });
+                            //默认价格
+                            $(function(){
+                                $('#shopping_car tr')
+                                    .each(function(){
+                                        var _this = $(this);
+                                        var oRp = _this.children('#record_price');
+                                        var oPp = _this.children('#pro_price');
+                                        var oPn = _this.children('#pro_num_td').children('#pro_num');
+                                        oRp.html(parseFloat(oPp.html())*parseInt(oPn.val()));
+                                               
+                                    });
+                            });
+                            //全选 全不选
+                            $(function(){
+                                $('input[id="shopping_cart_checkbox_all"]').click(function(){
+                                        if($(this).is(':checked')){
+                                            $("#cart_all_money_sum").html(0);
+                                            $('#shopping_car tr')
+                                                .each(function(){
+                                                var _this = $(this).children('#checkorno').children('input[name="selected"]');
+                                                _this.prop("checked",true);
+                                                var oRecordP = parseFloat($(this).children('#record_price').html());
+                                                var oAll = parseFloat($("#cart_all_money_sum").html());
+                                                $("#cart_all_money_sum").html(oRecordP+oAll);
+                                            });
+                                        }else{
+                                            $('#shopping_car tr')
+                                                .each(function(){
+                                                var _this = $(this);
+                                                _this.children('#checkorno').children('input[name="selected"]').prop("checked",false);
+                                                $("#cart_all_money_sum").html(0);
+                                            });
+                                        }
+                                    });
+                                });
+                        </script>
+					</tbody>
+				</table>
+				<div class="show_sum_money">
+					<input type="checkbox" id="shopping_cart_checkbox_all">
+					<span class="checkbox_dele">全选</span>
+					<div style="float: right">
+
+						<div class="show_sum_money_text" style="float: left;">
+							<span>总金额为：</span>
+							<span style="color: red;font-size: 2em;line-height: 50px;">￥</span>
+							<span style="margin-right: 10px;color: red;font-size: 1.2em;line-height: 50px;" id="cart_all_money_sum">0</span>
+						</div>
+						<div class="show_sum_money_button" style="float: left;" id="my_sum">
+							<a href="">结算</a>
+						</div>
+						<div class="show_sum_money_button show_sum_money_button2" style="float: left;" onclick="del_all()">
+							<a href="#">清空购物车</a>
+						</div>
+					</div>		
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+			<div class="select_main_page_numb">
+				[<a href="#">上一页</a>]
+				<span>1</span>
+				[<a href="#">下一页</a>]
+            </div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-﻿
+
 window.onload=function(){                 
 	changeDivHeight();	                
 }              
@@ -102,35 +102,7 @@ $(function(){
 		$('#goods_buy,#goods_sale').css("display","none");
 
 	});
-	function checkbox_fun(){
-		//跟新勾选数据的方法
-		let sum_money= 0		
-			$('#shopping_cart_table tbody tr:not(:first)').each(function(i){                  // 遍历 tr	
-				$(this).children(":eq(4)").text(parseFloat($(this).children("td:eq(2)").text())*$(this).children("td:eq(3)").children(":eq(1)").val());		    
-				if($(this).children("td:first").children("input[type='checkbox']").is(':checked')){
-				    sum_money+=parseFloat($(this).children("td:eq(4)").text());
-				}
-
-				$("#cart_all_money_sum").text(sum_money);
-				
-			});
-
-	}
-	$("input[name]").click(function(){
-		//勾选按钮
-		checkbox_fun()
-		
-	});
-	$("#shopping_cart_checkbox_all").click(function(){
-		//下方全选按钮
-		if($("#shopping_cart_checkbox_all").is(':checked')){
-			$("input[name]").prop("checked", true);
-		}
-		else{
-			$("input[name]").prop("checked", false);
-		}
-		checkbox_fun()
-	});
+	
 })
 	
 //删除购物车记录
